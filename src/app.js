@@ -17,6 +17,7 @@ if (command == "add") {
 }   else if (command == "remove") {
     console.log("removing notes...");
     removeNote(yargs.argv.note);
+    // ^ calling removeNotes function from notes.js ^
 }   else {
     console.log ("command not found");
 }
