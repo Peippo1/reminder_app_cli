@@ -9,6 +9,20 @@
         const notesJson = JSON.stringify(allNotes);
         fs.writeFileSync("notes.json",notes.Json);
     };
+// add note function
+    const addNote = myNote => {
+        const allNotes = loadNotes();
+        allNotes.push({reminder:myNote});
+
+        saveNotes(allNotes);
+    }
+// listing notes using mapping (recognise this from React)
+    const listNotes = () => {
+        const allNotes = loadNotes();
+        allNotes.map((note, index)=>{
+            console.log(`${index + 1}. {note.reminder}`);
+        });
+    };
 
 // try/catch to catch errors to prevent crashes 
 const fs=require('fs');
@@ -23,7 +37,8 @@ const loadNotes=()=>  {
         return[];
         }   
 };
-// export, list export items 
+// export, list export items. e.g addNotes and list Notes
 module.exports = {
     addNote,
+    listNotes,
 };
