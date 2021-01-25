@@ -24,6 +24,7 @@
         });
     };
 
+
 // try/catch to catch errors to prevent crashes 
 const fs=require('fs');
 const { allNotes } = require('process');
@@ -37,8 +38,19 @@ const loadNotes=()=>  {
         return[];
         }   
 };
+
+// Delete note function. filtering notes for If note in array = true then dont include. If false include.
+const removeNote= noteToDelete => {
+    const allNotes = loadNotes();
+    const notesToKeep = allNotes.filter(note => {
+        return note.reminder != noteToDelete;
+    });
+    saveNotes(notesToKeep);
+};
+
 // export, list export items. e.g addNotes and list Notes
 module.exports = {
     addNote,
     listNotes,
+    removeNote,
 };
