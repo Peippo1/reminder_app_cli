@@ -11,13 +11,13 @@ if (command == "add") {
     console.log("adding a note");
     addNote(yargs.argv.note);
 }   else if (command == "list") {
-    console.log("listing notes...")
+    console.log("listing notes...");
     listNotes();
     // ^ calling listNotes function from notes.js ^
 }   else if (command == "remove") {
-    console.log("removing notes...")
+    console.log("removing notes...");
 }   else {
-    console.log ("command not found")
+    console.log ("command not found");
 }
 
 
